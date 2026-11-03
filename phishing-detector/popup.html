@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phishing Detector</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 320px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      padding: 0;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      padding: 16px 18px;
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-icon { font-size: 22px; }
+
+    .header-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .header-sub {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 1px;
+    }
+
+    .content { padding: 16px 18px; }
+
+    .domain {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-bottom: 14px;
+      word-break: break-all;
+    }
+
+    .domain span {
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    /* Score card */
+    .score-card {
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .score-card.safe     { background: #052e16; border: 1px solid #16a34a; }
+    .score-card.warning  { background: #1c1400; border: 1px solid #d97706; }
+    .score-card.danger   { background: #2d0000; border: 1px solid #dc2626; }
+
+    .score-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .score-card.safe    .score-label { color: #4ade80; }
+    .score-card.warning .score-label { color: #fbbf24; }
+    .score-card.danger  .score-label { color: #f87171; }
+
+    .score-number {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .score-card.safe    .score-number { color: #22c55e; }
+    .score-card.warning .score-number { color: #f59e0b; }
+    .score-card.danger  .score-number { color: #ef4444; }
+
+    .score-max {
+      font-size: 13px;
+      color: #475569;
+    }
+
+    .score-verdict {
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .score-card.safe    .score-verdict { color: #86efac; }
+    .score-card.warning .score-verdict { color: #fde68a; }
+    .score-card.danger  .score-verdict { color: #fca5a5; }
+
+    /* Reasons */
+    .reasons-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #475569;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .reasons-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .reason-item {
+      background: #1e293b;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    .no-reasons {
+      font-size: 12px;
+      color: #475569;
+      font-style: italic;
+    }
+
+    .footer {
+      border-top: 1px solid #1e293b;
+      padding: 10px 18px;
+      font-size: 10px;
+      color: #334155;
+      text-align: center;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 30px 0;
+      color: #475569;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-icon">🛡️</div>
+    <div>
+      <div class="header-title">Phishing Detector</div>
+      <div class="header-sub">Real-time threat analysis</div>
+    </div>
+  </div>
+
+  <div class="content" id="main-content">
+    <div class="loading">Analyzing page...</div>
+  </div>
+
+  <div class="footer">Phishing Detector v2.0 · For educational use</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
